@@ -1,0 +1,8 @@
+﻿module,error_count,total_count,error_rate
+other,31115,38081,81.71
+workerEnv,4349,38081,11.42
+mod_jk,1259,38081,3.31
+jk2_init,971,38081,2.55
+config,180,38081,0.47
+env,180,38081,0.47
+uriMap,27,38081,0.07

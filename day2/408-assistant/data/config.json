@@ -1,0 +1,61 @@
+{
+  "user": {
+    "name": "张三",
+    "target_date": "2025-12-21",
+    "daily_goal_hours": 4.0
+  },
+  "subjects": [
+    {
+      "name": "数据结构",
+      "chapters": [
+        "线性表",
+        "栈和队列",
+        "树与二叉树",
+        "图",
+        "查找",
+        "排序"
+      ]
+    },
+    {
+      "name": "计算机组成原理",
+      "chapters": [
+        "数据的表示和运算",
+        "存储器层次结构",
+        "指令系统",
+        "中央处理器",
+        "总线",
+        "输入/输出系统"
+      ]
+    },
+    {
+      "name": "操作系统",
+      "chapters": [
+        "进程管理",
+        "内存管理",
+        "文件管理",
+        "输入/输出管理"
+      ]
+    },
+    {
+      "name": "计算机网络",
+      "chapters": [
+        "物理层",
+        "数据链路层",
+        "网络层",
+        "传输层",
+        "应用层"
+      ]
+    }
+  ],
+  "weakness_weights": {
+    "question_count": 2.0,
+    "repeat_count": 1.5,
+    "self_rating": 1.0,
+    "days_since_review": 0.5
+  },
+  "thresholds": {
+    "weakness_score": 8.0,
+    "forget_days": 7,
+    "max_daily_hours": 16.0
+  }
+}

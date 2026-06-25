@@ -1,0 +1,19 @@
+error_code,error_type,error_category,meaning,suggestion
+mod_jk_state_1,mod_jk workerEnv error state 1,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 1），Tomcat 后端连接不稳定,检查 Tomcat 服务状态与 mod_jk 配置中的 worker 列表
+mod_jk_state_2,mod_jk workerEnv error state 2,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 2），后端响应超时,调整 worker 的 connect_timeout 和 prepost_timeout 参数
+mod_jk_state_3,mod_jk workerEnv error state 3,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 3），后端连接被拒绝,确认 Tomcat 监听端口正常且防火墙未阻断
+mod_jk_state_4,mod_jk workerEnv error state 4,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 4），请求发送失败,检查网络连通性及 Tomcat 负载情况
+mod_jk_state_5,mod_jk workerEnv error state 5,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 5），后端回复读取失败,排查 Tomcat 端 GC 停顿或 OOM 导致的响应中断
+mod_jk_state_6,mod_jk workerEnv error state 6,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 6），后端连接已关闭,检查 Tomcat 端 keepAlive 配置与连接池回收策略
+mod_jk_state_7,mod_jk workerEnv error state 7,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 7），请求头过大,检查客户端请求头大小限制及 proxy 配置
+mod_jk_state_8,mod_jk workerEnv error state 8,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 8），SSL 握手失败,检查 Tomcat SSL 证书配置及协议兼容性
+mod_jk_state_9,mod_jk workerEnv error state 9,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 9），请求被客户端中断,通常为客户端超时断开，检查客户端网络稳定性
+mod_jk_state_10,mod_jk workerEnv error state 10,服务端模块错误,mod_jk 子进程 worker 状态异常（状态 10），响应体过大,检查 Tomcat 端返回的响应大小及 proxy buffer 配置
+mod_jk_child_init,mod_jk child init 1 -2,服务端模块错误,mod_jk 子进程初始化失败（返回码 -2），无法注册到 scoreboard,检查 Apache MPM 配置与 mod_jk 兼容性版本
+jk2_init,jk2_init() Found child in scoreboard slot,服务端模块错误,jk2_init 发现子进程在 scoreboard 中的槽位信息（通常为正常启动日志），可忽略,确认 Apache worker 进程启动正常即可
+env_createBean,env.createBean2() Factory error,服务端模块错误,Tomcat JNI 通道创建失败，Java 虚拟机无法启动,检查 JAVA_HOME 环境变量及 JVM 库路径配置
+config_update,config.update() Can't create,服务端模块错误,mod_jk 配置更新失败，无法创建指定 worker 或 channel,检查 workers.properties 配置文件中的 worker 定义是否完整
+uriMap,uriMap() Host not found,服务端模块错误,URI 映射找不到对应主机，虚拟主机配置异常,检查 httpd.conf 中 VirtualHost 与 mod_jk URI 映射配置
+HTTP_403,Directory index forbidden by rule,HTTP 客户端请求错误,服务器禁止目录列表（403 Forbidden），客户端请求了目录且未配置 index 文件,为目录添加 index 文件或在 Apache 配置中启用 Options Indexes
+HTTP_404,File does not exist,HTTP 客户端请求错误,请求的文件不存在（404 Not Found），客户端访问了已被删除或从未存在的资源,检查网站链接完整性，配置自定义 404 错误页面
+HTTP_500,script not found or unable to stat,HTTP 客户端请求错误,CGI 脚本未找到或无法执行（500 Internal Server Error）,检查 cgi-bin 目录下脚本是否存在且具有可执行权限
